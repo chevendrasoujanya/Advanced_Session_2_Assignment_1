@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Advanced Concepts - Session 2 | Assignment 1</title>
+</head>
+<body>
+	<script>
+		// 1. Arrow Functions
+		//ES5
+		function Person(prefix) {
+		    this.prefix = prefix;
+		}
+		Person.prototype.prefixName = function (arr) {
+		    var that = this; // (A)
+		    return arr.map(function (x) {
+		        return that.prefix + x;
+		    });
+		};
+		
+
+		var pre = new Person('Hi ');
+		pre.prefixName(['Joe', 'Alex']);
+		
+		// 2. Object Destructuring
+		let user = {firstName: 'Avnesh', lastName: 'Shakya', dob: '14-04-1988'};
+
+		let {first, last, dob} = user;
+
+		let myObjValues = () => {
+			console.log(`I am ${user.firstName} ${user.lastName}. and I Born on ${user.dob}`);
+		}
+
+		myObjValues();
+
+		// 3. Array Destructuring
+		var friends = ["John", "Smith", "Robert", "Thomson"];
+		var [friend1, friend2, friend3, friend4] = friends;
+
+		for (var i = 0; i < friends.length; i++) {
+			console.log(friends[i]);
+		};
+
+		// 4. IIFEs
+		let userName = 'Soujanya';
+		let password = '12345678';
+		(function() {
+			let blockPassword = '12345';
+			console.log(`My Block Level Password is: ${blockPassword}`);
+		})();
+
+		console.log(`My Block Level Password is: ${blockPassword}`); //Reference Error
+
+	</script>
+</body>
+</html>
